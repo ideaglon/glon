@@ -10,10 +10,23 @@
     "type": "git",
     "url": "git+https://github.com/ideaglon/glon.git"
   },
-  "author": "",
+  "author": "pitaya <cnzhejiang@qq.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ideaglon/glon/issues"
   },
-  "homepage": "https://github.com/ideaglon/glon#readme"
+  "bin": {
+    "glon": "./bin/glon"
+  },
+  "engines": {
+    "node": ">= 4.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "homepage": "https://github.com/ideaglon/glon#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.17.1",
+    "resolve": "^1.8.1",
+    "semver": "^5.5.1"
+  }
 }
