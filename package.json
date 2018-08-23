@@ -11,7 +11,7 @@
     "url": "git+https://github.com/ideaglon/glon.git"
   },
   "author": "pitaya <cnzhejiang@qq.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ideaglon/glon/issues"
   },

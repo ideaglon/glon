@@ -36,26 +36,15 @@ if (pluginPath) {
     }
 
     if (pluginDef.options) {
-       // default options in abc.json
-        var defaultOpts = loadDefaultOpts(process.cwd(), 'abc.json');
-        var optNameReg = /\-\-(\w+)/;
         pluginDef.options.forEach(function(optArgs) {
             if (optArgs) {
                 plugin.option.apply(plugin, optArgs);
-
-                // replace default value with options in abc.json
-                var matches = optNameReg.exec(optArgs[0]);
-                if (matches && matches[1] in defaultOpts) {
-                plugin[matches[1]] = defaultOpts[matches[1]]
-                }
             }
         });
-
     }
 
     if (pluginDef.action) {
         plugin.action(function(cmd, opts) {
-            console.log('11111111', cmd, '222222222', opts);
           if (cmd instanceof program.Command) {
             opts = cmd;
             cmd = '';
@@ -93,19 +82,6 @@ function findPluginPath(command) {
             console.log('  You can try to install it by ' + chalk.blue.bold('glon install ' + command) + '.');
             console.log('');
         }
-    }
-}
-
-// load default options
-function loadDefaultOpts(startDir, configFile) {
-    try {
-      return require(path.join(startDir, configFile)).options;
-    } catch (e) {
-      var dir = path.dirname(startDir);
-      if (dir === startDir) {
-        return {};
-      }
-      return loadDefaultOpts(dir, configFile);
     }
 }
   
